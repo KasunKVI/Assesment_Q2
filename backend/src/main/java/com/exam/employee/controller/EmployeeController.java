@@ -3,7 +3,9 @@ package com.exam.employee.controller;
 import com.exam.employee.dto.EmployeeRequest;
 import com.exam.employee.dto.EmployeeResponse;
 import com.exam.employee.service.EmployeeService;
+import com.exam.employee.service.impl.EmployeeServiceImpl;
 import jakarta.validation.Valid;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,14 +13,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@AllArgsConstructor
 @RequestMapping("/api/employees")
 public class EmployeeController {
 
     private final EmployeeService employeeService;
 
-    public EmployeeController(EmployeeService employeeService) {
-        this.employeeService = employeeService;
-    }
 
     @GetMapping
     public ResponseEntity<List<EmployeeResponse>> getAllEmployees() {

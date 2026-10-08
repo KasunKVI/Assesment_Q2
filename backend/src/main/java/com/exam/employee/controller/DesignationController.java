@@ -3,6 +3,7 @@ package com.exam.employee.controller;
 import com.exam.employee.dto.DesignationDto;
 import com.exam.employee.service.DesignationService;
 import jakarta.validation.Valid;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,14 +11,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@AllArgsConstructor
 @RequestMapping("/api/designations")
 public class DesignationController {
 
     private final DesignationService designationService;
-
-    public DesignationController(DesignationService designationService) {
-        this.designationService = designationService;
-    }
 
     @GetMapping
     public ResponseEntity<List<DesignationDto>> getAllDesignations() {
